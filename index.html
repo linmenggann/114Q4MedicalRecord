@@ -142,9 +142,9 @@
                             <td rowspan="4" class="font-bold text-medical-700 dark:text-medical-300 bg-medical-50 dark:bg-slate-800">內科系<br>住院醫師組</td>
                             <td>1</td><td>內科部</td><td>林卲娗</td><td>LR2</td>
                         </tr>
-                        <tr><td>2</td><td>家庭醫學部<br><small>(run內分泌新陳代謝科)</small></td><td>郭冠辰</td><td>LR2</td></tr>
+                        <tr><td>2</td><td>家庭醫學部(run 內分泌新陳代謝科)</td><td>郭冠辰</td><td>LR2</td></tr>
                         <tr><td>3</td><td>內科部</td><td>簡碩廷</td><td>LR3</td></tr>
-                        <tr><td>4</td><td>外科部<br><small>(run加護醫學部)</small></td><td>林仁傑</td><td>LR1</td></tr>
+                        <tr><td>4</td><td>外科部(run 加護醫學部)</td><td>林仁傑</td><td>LR1</td></tr>
                         
                         <!-- 外科系 -->
                         <tr>
@@ -298,7 +298,7 @@
                             (外科系)病歷指導優良前三名科別：
                         </p>
                         <p class="text-xl text-center mt-2 text-emerald-600 dark:text-emerald-300 font-semibold">
-                            一般及消化系外科、神經外科、泌尿外科
+                            胸腔外科、神經外科、口腔顎面外科
                         </p>
                     </div>
                 </div>
@@ -511,7 +511,7 @@
                             <tr>
                                 <td>內科部</td>
                                 <td>5 (83.33%)</td><td>6</td>
-                                <td class="font-bold text-emerald-600 dark:text-emerald-400">22 (100.00%)</td><td>22</td>
+                                <td>22 (100.00%)</td><td>22</td>
                             </tr>
                             <tr>
                                 <td>外科部</td>
@@ -589,232 +589,232 @@
             charts.forEach(chart => chart.dispose());
             charts = [];
 
-              const isDark = htmlElement.classList.contains('dark');
-              const textColor = isDark ? '#e2e8f0' : '#334155';
-              const axisColor = isDark ? '#64748b' : '#94a3b8';
-              const gridColor = isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)';
-              const backgroundColor = 'transparent';
-              const seasonLabels = ['第一季', '第二季', '第三季', '第四季'];
+            const isDark = htmlElement.classList.contains('dark');
+            const textColor = isDark ? '#e2e8f0' : '#334155';
+            const axisColor = isDark ? '#64748b' : '#94a3b8';
+            const gridColor = isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)';
+            const backgroundColor = 'transparent';
+            const seasonLabels = ['第一季', '第二季', '第三季', '第四季'];
 
-              const commonOptions = {
-                  backgroundColor: backgroundColor,
-                  textStyle: { fontFamily: 'Noto Sans TC' },
-                  grid: { containLabel: true, left: '5%', right: '5%', bottom: '5%', top: '15%' },
-                  xAxis: { axisLine: { lineStyle: { color: axisColor } }, axisLabel: { color: textColor, fontSize: 14 } },
-                  yAxis: { splitLine: { lineStyle: { color: gridColor } }, axisLabel: { color: textColor } },
-                  tooltip: { trigger: 'axis' }
-              };
+            const commonOptions = {
+                backgroundColor: backgroundColor,
+                textStyle: { fontFamily: 'Noto Sans TC' },
+                grid: { containLabel: true, left: '5%', right: '5%', bottom: '5%', top: '15%' },
+                xAxis: { axisLine: { lineStyle: { color: axisColor } }, axisLabel: { color: textColor, fontSize: 14 } },
+                yAxis: { splitLine: { lineStyle: { color: gridColor } }, axisLabel: { color: textColor } },
+                tooltip: { trigger: 'axis' }
+            };
 
-              const buildSparklineOptions = (data, color, unit) => ({
-                  backgroundColor,
-                  grid: { left: 36, right: 16, top: 24, bottom: 32 },
-                  tooltip: { trigger: 'axis' },
-                  xAxis: {
-                      type: 'category',
-                      data: seasonLabels,
-                      boundaryGap: false,
-                      axisLine: { show: true, lineStyle: { color: axisColor } },
-                      axisTick: { show: true, lineStyle: { color: axisColor } },
-                      axisLabel: { color: textColor, fontSize: 12 }
-                  },
-                  yAxis: {
-                      type: 'value',
-                      axisLine: { show: true, lineStyle: { color: axisColor } },
-                      axisTick: { show: true, lineStyle: { color: axisColor } },
-                      splitLine: { show: true, lineStyle: { color: gridColor } },
-                      splitNumber: 4
-                  },
-                  series: [{
-                      type: 'line',
-                      smooth: true,
-                      data,
-                      symbol: 'circle',
-                      symbolSize: 8,
-                      lineStyle: { color, width: 3 },
-                      itemStyle: { color },
-                      label: {
-                          show: true,
-                          position: 'top',
-                          formatter: ({ value }) => `${value}${unit}`,
-                          color: textColor,
-                          fontSize: 12,
-                          fontWeight: 'bold'
-                      },
-                      areaStyle: {
-                          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-                              { offset: 0, color: isDark ? `${color}CC` : `${color}B3` },
-                              { offset: 1, color: 'rgba(255,255,255,0)' }
-                          ])
-                      }
-                  }]
-              });
+            const buildSparklineOptions = (data, color, unit) => ({
+                backgroundColor,
+                grid: { left: 36, right: 16, top: 24, bottom: 32 },
+                tooltip: { trigger: 'axis' },
+                xAxis: {
+                    type: 'category',
+                    data: seasonLabels,
+                    boundaryGap: false,
+                    axisLine: { show: true, lineStyle: { color: axisColor } },
+                    axisTick: { show: true, lineStyle: { color: axisColor } },
+                    axisLabel: { color: textColor, fontSize: 12 }
+                },
+                yAxis: {
+                    type: 'value',
+                    axisLine: { show: true, lineStyle: { color: axisColor } },
+                    axisTick: { show: true, lineStyle: { color: axisColor } },
+                    splitLine: { show: true, lineStyle: { color: gridColor } },
+                    splitNumber: 4
+                },
+                series: [{
+                    type: 'line',
+                    smooth: true,
+                    data,
+                    symbol: 'circle',
+                    symbolSize: 8,
+                    lineStyle: { color, width: 3 },
+                    itemStyle: { color },
+                    label: {
+                        show: true,
+                        position: 'top',
+                        formatter: ({ value }) => `${value}${unit}`,
+                        color: textColor,
+                        fontSize: 12,
+                        fontWeight: 'bold'
+                    },
+                    areaStyle: {
+                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                            { offset: 0, color: isDark ? `${color}CC` : `${color}B3` },
+                            { offset: 1, color: 'rgba(255,255,255,0)' }
+                        ])
+                    }
+                }]
+            });
 
-              // Sparkline charts for seasonal trends
-              const auditSparkline = echarts.init(document.getElementById('chart-audit-volume'));
-              auditSparkline.setOption(buildSparklineOptions([145, 144, 126, 126], '#0ea5e9', '本'));
-              charts.push(auditSparkline);
+            // Sparkline charts
+            const auditSparkline = echarts.init(document.getElementById('chart-audit-volume'));
+            auditSparkline.setOption(buildSparklineOptions([145, 144, 126, 126], '#0ea5e9', '本'));
+            charts.push(auditSparkline);
 
-              const averageSparkline = echarts.init(document.getElementById('chart-average-score'));
-              averageSparkline.setOption(buildSparklineOptions([88.37, 87.65, 88.12, 87.34], '#f97316', '分'));
-              charts.push(averageSparkline);
+            const averageSparkline = echarts.init(document.getElementById('chart-average-score'));
+            averageSparkline.setOption(buildSparklineOptions([88.37, 87.65, 88.12, 87.34], '#f97316', '分'));
+            charts.push(averageSparkline);
 
-              const holisticSparkline = echarts.init(document.getElementById('chart-holistic-care'));
-              holisticSparkline.setOption(buildSparklineOptions([21, 24, 15, 22], '#10b981', '本'));
-              charts.push(holisticSparkline);
+            const holisticSparkline = echarts.init(document.getElementById('chart-holistic-care'));
+            holisticSparkline.setOption(buildSparklineOptions([21, 24, 15, 22], '#10b981', '本'));
+            charts.push(holisticSparkline);
 
-              // 1. Internal Score Chart
-              const chartInternal = echarts.init(document.getElementById('chart-internal-score'));
-              chartInternal.setOption({
-                  ...commonOptions,
-                  xAxis: { ...commonOptions.xAxis, data: ['復健科', '胸腔內科', '內分泌\n新陳代謝科'], axisLabel: { interval: 0, rotate: 0, fontSize: 14, fontWeight: 'bold' } },
-                  yAxis: { ...commonOptions.yAxis, min: 80, max: 95 },
-                  series: [{
-                      name: '分數',
-                      type: 'bar',
-                      data: [89.70, 88.49, 87.98],
-                      itemStyle: { color: '#0ea5e9' },
-                      label: { show: true, position: 'top', color: textColor, fontSize: 16, fontWeight: 'bold' },
-                      markLine: {
-                          data: [{ yAxis: 87.08, name: '內科系平均 87.08' }],
-                          lineStyle: { color: '#ef4444', width: 3, type: 'solid' },
-                          label: { show: false }
-                      }
-                  }]
-              });
-              charts.push(chartInternal);
+            // 1. Internal Score Chart
+            const chartInternal = echarts.init(document.getElementById('chart-internal-score'));
+            chartInternal.setOption({
+                ...commonOptions,
+                xAxis: { ...commonOptions.xAxis, data: ['復健科', '胸腔內科', '內分泌\n新陳代謝科'], axisLabel: { interval: 0, rotate: 0, fontSize: 14, fontWeight: 'bold' } },
+                yAxis: { ...commonOptions.yAxis, min: 80, max: 95 },
+                series: [{
+                    name: '分數',
+                    type: 'bar',
+                    data: [89.70, 88.49, 87.98],
+                    itemStyle: { color: '#0ea5e9' },
+                    label: { show: true, position: 'top', color: textColor, fontSize: 16, fontWeight: 'bold' },
+                    markLine: {
+                        data: [{ yAxis: 87.08, name: '內科系平均 87.08' }],
+                        lineStyle: { color: '#ef4444', width: 3, type: 'solid' },
+                        label: { show: false }
+                    }
+                }]
+            });
+            charts.push(chartInternal);
 
-              // 2. Surgical Score Chart
-              const chartSurgical = echarts.init(document.getElementById('chart-surgical-score'));
-              chartSurgical.setOption({
-                  ...commonOptions,
-                  xAxis: { ...commonOptions.xAxis, data: ['眼科', '胸腔外科', '一般及\n消化系外科'], axisLabel: { interval: 0, rotate: 0, fontSize: 14, fontWeight: 'bold' } },
-                  yAxis: { ...commonOptions.yAxis, min: 80, max: 95 },
-                  series: [{
-                      name: '分數',
-                      type: 'bar',
-                      data: [89.47, 88.35, 88.19],
-                      itemStyle: { color: '#10b981' },
-                      label: { show: true, position: 'top', color: textColor, fontSize: 16, fontWeight: 'bold' },
-                      markLine: {
-                          data: [{ yAxis: 87.22, name: '外科系平均 87.22' }],
-                          lineStyle: { color: '#ef4444', width: 3, type: 'solid' },
-                          label: { show: false }
-                      }
-                  }]
-              });
-              charts.push(chartSurgical);
+            // 2. Surgical Score Chart
+            const chartSurgical = echarts.init(document.getElementById('chart-surgical-score'));
+            chartSurgical.setOption({
+                ...commonOptions,
+                xAxis: { ...commonOptions.xAxis, data: ['眼科', '胸腔外科', '一般及\n消化系外科'], axisLabel: { interval: 0, rotate: 0, fontSize: 14, fontWeight: 'bold' } },
+                yAxis: { ...commonOptions.yAxis, min: 80, max: 95 },
+                series: [{
+                    name: '分數',
+                    type: 'bar',
+                    data: [89.47, 88.35, 88.19],
+                    itemStyle: { color: '#10b981' },
+                    label: { show: true, position: 'top', color: textColor, fontSize: 16, fontWeight: 'bold' },
+                    markLine: {
+                        data: [{ yAxis: 87.22, name: '外科系平均 87.22' }],
+                        lineStyle: { color: '#ef4444', width: 3, type: 'solid' },
+                        label: { show: false }
+                    }
+                }]
+            });
+            charts.push(chartSurgical);
 
-              // 3. Self Review Chart
-              const chartSelf = echarts.init(document.getElementById('chart-self-review'));
-              chartSelf.setOption({
-                  ...commonOptions,
-                  xAxis: { ...commonOptions.xAxis, data: ['精神醫學部', '加護醫學部', '兒科部', '婦產部', '急診醫學部'], axisLabel: { interval: 0, fontSize: 14, fontWeight: 'bold' } },
-                  yAxis: { ...commonOptions.yAxis, min: 80 },
-                  series: [{
-                      type: 'bar',
-                      data: [90.16, 87.85, 87.84, 86.18, 85.04],
-                      itemStyle: { 
-                          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-                              { offset: 0, color: '#6366f1' },
-                              { offset: 1, color: '#4338ca' }
-                          ])
-                      },
-                      label: { show: true, position: 'top', color: textColor, fontSize: 18, fontWeight: 'bold' }
-                  }]
-              });
-              charts.push(chartSelf);
+            // 3. Self Review Chart
+            const chartSelf = echarts.init(document.getElementById('chart-self-review'));
+            chartSelf.setOption({
+                ...commonOptions,
+                xAxis: { ...commonOptions.xAxis, data: ['精神醫學部', '加護醫學部', '兒科部', '婦產部', '急診醫學部'], axisLabel: { interval: 0, fontSize: 14, fontWeight: 'bold' } },
+                yAxis: { ...commonOptions.yAxis, min: 80 },
+                series: [{
+                    type: 'bar',
+                    data: [90.16, 87.85, 87.84, 86.18, 85.04],
+                    itemStyle: { 
+                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                            { offset: 0, color: '#6366f1' },
+                            { offset: 1, color: '#4338ca' }
+                        ])
+                    },
+                    label: { show: true, position: 'top', color: textColor, fontSize: 18, fontWeight: 'bold' }
+                }]
+            });
+            charts.push(chartSelf);
 
-              // 4. Internal Guide Chart
-              const chartIntGuide = echarts.init(document.getElementById('chart-internal-guide'));
-              chartIntGuide.setOption({
-                  ...commonOptions,
-                  xAxis: { ...commonOptions.xAxis, data: ['精神醫學部', '內分泌\n新陳代謝科', '一般內科'], axisLabel: { interval: 0, fontSize: 14, fontWeight: 'bold' } },
-                  yAxis: { ...commonOptions.yAxis, min: 85, max: 92 },
-                  series: [{
-                      type: 'bar',
-                      data: [89.75, 89.40, 87.63],
-                      itemStyle: { color: '#3b82f6' },
-                      label: { show: true, position: 'top', color: textColor, fontSize: 16, fontWeight: 'bold' }
-                  }]
-              });
-              charts.push(chartIntGuide);
+            // 4. Internal Guide Chart
+            const chartIntGuide = echarts.init(document.getElementById('chart-internal-guide'));
+            chartIntGuide.setOption({
+                ...commonOptions,
+                xAxis: { ...commonOptions.xAxis, data: ['精神醫學部', '一般內科', '內分泌\n新陳代謝科'], axisLabel: { interval: 0, fontSize: 14, fontWeight: 'bold' } },
+                yAxis: { ...commonOptions.yAxis, min: 85, max: 92 },
+                series: [{
+                    type: 'bar',
+                    data: [89.75, 89.63, 89.40],
+                    itemStyle: { color: '#3b82f6' },
+                    label: { show: true, position: 'top', color: textColor, fontSize: 16, fontWeight: 'bold' }
+                }]
+            });
+            charts.push(chartIntGuide);
 
-              // 5. Surgical Guide Chart
-              const chartSurgGuide = echarts.init(document.getElementById('chart-surgical-guide'));
-              chartSurgGuide.setOption({
-                  ...commonOptions,
-                  xAxis: { ...commonOptions.xAxis, data: ['神經外科', '一般及\n消化系外科', '泌尿外科'], axisLabel: { interval: 0, fontSize: 14, fontWeight: 'bold' } },
-                  yAxis: { ...commonOptions.yAxis, min: 85, max: 92 },
-                  series: [{
-                      type: 'bar',
-                      data: [88.67, 88.00, 87.28],
-                      itemStyle: { color: '#059669' },
-                      label: { show: true, position: 'top', color: textColor, fontSize: 16, fontWeight: 'bold' }
-                  }]
-              });
-              charts.push(chartSurgGuide);
+            // 5. Surgical Guide Chart
+            const chartSurgGuide = echarts.init(document.getElementById('chart-surgical-guide'));
+            chartSurgGuide.setOption({
+                ...commonOptions,
+                xAxis: { ...commonOptions.xAxis, data: ['胸腔外科', '神經外科', '口腔顎面外科'], axisLabel: { interval: 0, fontSize: 14, fontWeight: 'bold' } },
+                yAxis: { ...commonOptions.yAxis, min: 85, max: 92 },
+                series: [{
+                    type: 'bar',
+                    data: [88.75, 88.67, 88.63],
+                    itemStyle: { color: '#059669' },
+                    label: { show: true, position: 'top', color: textColor, fontSize: 16, fontWeight: 'bold' }
+                }]
+            });
+            charts.push(chartSurgGuide);
 
-              // 6. UGY Chart
-              const chartUGY = echarts.init(document.getElementById('chart-ugy'));
-              chartUGY.setOption({
-                  ...commonOptions,
-                  xAxis: { ...commonOptions.xAxis, data: ['兒科', '神經外科', '內分泌\n新陳代謝科', '一般及\n消化系外科', '胃腸科', '神經內科'], axisLabel: { interval: 0, fontSize: 13, fontWeight: 'bold' } },
-                  yAxis: { ...commonOptions.yAxis, min: 80 },
-                  series: [{
-                      type: 'bar',
-                      data: [90.41, 87.67, 87.24, 86.67, 85.35, 85.26],
-                      itemStyle: { 
-                           color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-                              { offset: 0, color: '#8b5cf6' },
-                              { offset: 1, color: '#6d28d9' }
-                          ])
-                      },
-                      label: { show: true, position: 'top', color: textColor, fontSize: 16, fontWeight: 'bold' },
-                      barWidth: '40%'
-                  }]
-              });
-              charts.push(chartUGY);
+            // 6. UGY Chart
+            const chartUGY = echarts.init(document.getElementById('chart-ugy'));
+            chartUGY.setOption({
+                ...commonOptions,
+                xAxis: { ...commonOptions.xAxis, data: ['兒科', '神經外科', '內分泌\n新陳代謝科', '一般及\n消化系外科', '胃腸科', '神經內科'], axisLabel: { interval: 0, fontSize: 14, fontWeight: 'bold' } },
+                yAxis: { ...commonOptions.yAxis, min: 80 },
+                series: [{
+                    type: 'bar',
+                    data: [90.41, 87.67, 87.24, 86.67, 85.35, 85.26],
+                    itemStyle: { 
+                         color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                            { offset: 0, color: '#8b5cf6' },
+                            { offset: 1, color: '#6d28d9' }
+                        ])
+                    },
+                    label: { show: true, position: 'top', color: textColor, fontSize: 18, fontWeight: 'bold' },
+                    barWidth: '40%'
+                }]
+            });
+            charts.push(chartUGY);
 
-              // 7. Poor Items Chart (Line Chart 1-35)
-              const chartPoor = echarts.init(document.getElementById('chart-poor-items'));
-              const poorData = [3,3,1,0,1,0,5,1,7,1,0,4,13,2,0,0,6,1,0,1,0,1,0,1,7,2,2,4,0,0,0,1,1,0,17];
-              const xData = Array.from({length: 35}, (_, i) => i + 1);
-              
-              chartPoor.setOption({
-                  ...commonOptions,
-                  tooltip: { trigger: 'axis' },
-                  xAxis: { 
-                      type: 'category',
-                      data: xData,
-                      axisLabel: { interval: 0, fontSize: 10, color: textColor }
-                  },
-                  yAxis: { 
-                      type: 'value',
-                      name: '本數',
-                      nameTextStyle: { fontSize: 14, color: textColor, padding: [0, 0, 0, 20] },
-                      axisLabel: { color: textColor }
-                  },
-                  series: [{
-                      type: 'line',
-                      data: poorData,
-                      lineStyle: { width: 4, color: isDark ? '#f87171' : '#dc2626' },
-                      symbol: 'circle',
-                      symbolSize: 8,
-                      itemStyle: { color: isDark ? '#f87171' : '#dc2626' },
-                      markPoint: {
-                          data: [
-                              { 
-                                  coord: [34, 17], 
-                                  value: '17',
-                                  itemStyle: { color: '#dc2626' },
-                                  label: { fontSize: 24, fontWeight: 'bold', color: 'white' }
-                              }
-                          ],
-                          symbolSize: 60
-                      }
-                  }]
-              });
-              charts.push(chartPoor);
+            // 7. Poor Items Chart (Line Chart 1-35)
+            const chartPoor = echarts.init(document.getElementById('chart-poor-items'));
+            const poorData = [3,3,1,0,1,0,5,1,7,1,0,4,13,2,0,0,6,1,0,1,0,1,0,1,7,2,2,4,0,0,0,1,1,0,17];
+            const xData = Array.from({length: 35}, (_, i) => i + 1);
+            
+            chartPoor.setOption({
+                ...commonOptions,
+                tooltip: { trigger: 'axis' },
+                xAxis: { 
+                    type: 'category',
+                    data: xData,
+                    axisLabel: { interval: 0, fontSize: 10, color: textColor }
+                },
+                yAxis: { 
+                    type: 'value',
+                    name: '本數',
+                    nameTextStyle: { fontSize: 14, color: textColor, padding: [0, 0, 0, 20] },
+                    axisLabel: { color: textColor }
+                },
+                series: [{
+                    type: 'line',
+                    data: poorData,
+                    lineStyle: { width: 4, color: isDark ? '#f87171' : '#dc2626' },
+                    symbol: 'circle',
+                    symbolSize: 8,
+                    itemStyle: { color: isDark ? '#f87171' : '#dc2626' },
+                    markPoint: {
+                        data: [
+                            { 
+                                coord: [34, 17], 
+                                value: '17',
+                                itemStyle: { color: '#dc2626' },
+                                label: { fontSize: 24, fontWeight: 'bold', color: 'white' }
+                            }
+                        ],
+                        symbolSize: 60
+                    }
+                }]
+            });
+            charts.push(chartPoor);
         }
 
         // Initialize on load
